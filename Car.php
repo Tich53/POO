@@ -1,63 +1,28 @@
 <?php
+    require_once 'Vehicle.php';
 
-    class Car{
-        private int $nbWheels = 4;
-        private int $currentSpeed = 0;
-        private string $color = 'white';
-        private int $nbSeats = 5;
-        private string $energy = 'gasoline';
+    class Car extends Vehicle{
+
+        public const ALLOWED_ENERGIES = [
+            'fuel',
+            'electric',
+        ];
+
+        private string $energy = "";
         private int $energyLevel = 0;
 
-
-        //CONSTRUCTEUR
         public function __construct(string $color, int $nbSeats, string $energy)
         {
-            $this->color = $color;
-            $this->nbSeats = $nbSeats;
-            $this->energy = $energy;
+            parent::__construct ($color, $nbSeats);
+            $this->energy= $energy;
         }
 
-
-        // METHODES
-        public function start() : string
+        public function setEnergy(string $energy): Car
         {
-            $this->currentSpeed = 0;
-            return 'go!';
-        }
-        public function forward() : string
-        {
-            $this->currentSpeed = 80;
-            return "go !";
-        }
-        public function brake() : string
-        {
-            $this->currentSpeed = 150;
-            $sentence = "";
-            while($this->currentSpeed > 0){
-                $this->currentSpeed--;
-                $sentence .= "Brake !!!";
-            }
-            $sentence .= "I'm stopped !";
-            return $sentence;
-        }
-
-
-        // ACCESSEUR DE PROPRIETE OU GETTERS
-        public function getNbWheels () : int
-        {
-            return $this->nbWheels;
-        }
-        public function getCurrentSpeed () : int
-        {
-            return $this->currentSpeed;
-        }
-        public function getColor () : string
-        {
-            return $this->color;
-        }
-        public function getNbSeats () : int
-        {
-            return $this->nbSeats;
+                if (in_array($energy, self::ALLOWED_ENERGIES)) {
+                    $this->energy = $energy;
+                }
+                return $this;
         }
         public function getEnergy () : string
         {
