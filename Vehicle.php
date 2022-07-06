@@ -1,5 +1,5 @@
 <?php
-    class Vehicle{
+    abstract class Vehicle{
         protected string $color = "";
         protected int $currentSpeed = 0;
         protected int $nbSeats = 0;
