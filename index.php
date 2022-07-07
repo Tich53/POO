@@ -1,4 +1,5 @@
 <?php
+
 require_once 'Bicycle.php';
 require_once 'Car.php';
 require_once 'Truck.php';
@@ -30,7 +31,20 @@ $tornado->forward();
 
 // Instanciation d'un nouvel objet $myCar
 $myCar = new Car('grey', 5, 'diesel');
-echo $myCar->start();
+
+try {
+    $myCar->start();
+} catch (Exception $e) {
+    echo "Exception received : " . $e -> getMessage();
+    echo "<br>";
+    echo "Ok, je retire le frein à main";
+    echo "<br>";
+    $myCar -> setParkBrake(false);
+} finally {;
+    echo "Supeeeeer, ma voiture roule comme un donut";
+    echo "<br>";
+}
+
 echo $myCar->forward();
 echo $myCar->brake();
 echo $myCar->getNbWheels();
@@ -48,6 +62,8 @@ echo $car->forward();
 
 // Instanciation de l'objet Truck
 $myTruck = new Truck('yellow',3,33,0);
+
+
 echo $myTruck->start();
 echo $myTruck->forward();
 echo $myTruck->setCurrentSpeed(100);

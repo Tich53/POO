@@ -8,8 +8,22 @@
             'electric',
         ];
 
+        private bool $hasParkBrake = true;
         private string $energy = "";
         private int $energyLevel = 0;
+
+        public function setParkBrake(bool $hasParkBrake): void
+        {
+                $this -> hasParkBrake = $hasParkBrake;
+        }
+
+        public function start() : string
+        {
+            if ($this -> hasParkBrake){
+                throw new Exception("Attention, le frein à main est enclenché !");
+            }
+            return "Pas de frein, fonces !";
+        }
 
         public function __construct(string $color, int $nbSeats, string $energy)
         {
