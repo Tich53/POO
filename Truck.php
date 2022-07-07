@@ -1,7 +1,7 @@
 <?php
     require_once 'Vehicle.php';
 
-    class Truck extends Vehicle {
+    class Truck extends Vehicle{
         private int $storeCapacity;
         private int $loading = 0;
         private string $energy;
@@ -12,6 +12,8 @@
             'electric',
         ];
     
+ 
+
         public function __construct(string $color, int $nbSeats, int $storeCapacity, int $loading)
         {
             parent::__construct ($color, $nbSeats);
