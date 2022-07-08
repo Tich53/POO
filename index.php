@@ -1,41 +1,91 @@
 <?php
+
 require_once 'Bicycle.php';
 require_once 'Car.php';
+require_once 'Truck.php';
+require_once 'Speedometer.php';
 
 
-$bike = new Bicycle("green"); // Instanciation d'un nouvel objet $bike de la classe Bicycle
 
-$bike->setColor("yellow");
-$bike->getCurrentSpeed();
+
+//$bike = new Bicycle("green", 1); // Instanciation d'un nouvel objet $bike de la classe Bicycle
+
+//$bike->setColor("yellow");
+//$bike->getCurrentSpeed();
 
 // Moving bike
-echo $bike->forward();
-echo '<br> Vitesse du vélo : ' . $bike->getCurrentSpeed() . ' km/h' . '<br>';
-echo $bike->brake();
-echo '<br> Vitesse du vélo : ' . $bike->getCurrentSpeed() . ' km/h' . '<br>';
-echo $bike->brake();
+//echo $bike->forward();
+//echo '<br> Vitesse du vélo : ' . $bike->getCurrentSpeed() . ' km/h' . '<br>';
+//echo $bike->brake();
+//echo '<br> Vitesse du vélo : ' . $bike->getCurrentSpeed() . ' km/h' . '<br>';
+//echo $bike->brake();
 
 // Instanciation d'un nouvel objet $rockrider de la classe Bicycle
-$rockrider = new Bicycle("blue");
-$rockrider->setColor("yellow");
+//$rockrider = new Bicycle("blue", 1);
+//$rockrider->setColor("yellow");
 
 
 // Instanciation d'un nouvel objet $tornado de la classe Bicycle
-$tornado = new Bicycle("black");
-$tornado->getColor("black");
-$tornado->forward();
+//$tornado = new Bicycle("black",1);
+//$tornado->getColor("black");
+//$tornado->forward();
 
 
 // Instanciation d'un nouvel objet $myCar
-$myCar = new Car('grey', 5, 'diesel');
-echo $myCar->start();
-echo $myCar->forward();
-echo $myCar->brake();
-echo $myCar->getNbWheels();
-echo $myCar->getCurrentSpeed();
-echo $myCar->getColor();
-echo $myCar->getNbSeats();
-echo $myCar->getEnergy();
-echo $myCar->getEnergyLevel();
+//$myCar = new Car('grey', 5, 'diesel');
+
+//try {
+    //$myCar->start();
+//} catch (Exception $e) {
+    //echo "Exception received : " . $e -> getMessage();
+    //echo "<br>";
+    //echo "Ok, je retire le frein à main";
+    //echo "<br>";
+    //$myCar -> setParkBrake(false);
+//} finally {;
+    //echo "Supeeeeer, ma voiture roule comme un donut";
+    //echo "<br>";
+//}
+
+//echo $myCar->forward(); 
+//echo $myCar->brake();
+//echo $myCar->getNbWheels();
+//echo $myCar->getCurrentSpeed();
+//echo $myCar->getColor();
+//echo $myCar->getNbSeats();
+//echo $myCar->getEnergy();
+//echo $myCar->getEnergyLevel();
+
+//$bicycle = new Bicycle('blue', 1);
+//echo $bicycle->forward();
+//echo "<br>";
+//$bicycle -> setCurrentSpeed(20);
+//try {
+    //echo $bicycle -> switchOn();
+//} catch (Exception $e) {
+    //echo "roule plus vite pour allumer la dynamo !";
+//} finally {
+    //echo $bicycle -> switchOn();
+//}
+
+
+//$car = new Car('green', 4, 'electric');
+//echo $car->forward();
+
+// Instanciation de l'objet Truck
+//$myTruck = new Truck('yellow',3,33,0);
+
+
+//echo $myTruck->start();
+//echo $myTruck->forward();
+//echo $myTruck->setCurrentSpeed(5);
+//echo $myCar -> switchOff();
+//echo $myTruck->brake();
+//$myTruck-> setLoading(30);
+//echo $myTruck->isFull();
+
+echo "La conversion du nombre de km en miles est de " . Speedometer::convertKmToMiles(10) . " miles";
+echo "<br>";
+echo "La conversion du nombre de miles en km est de " . Speedometer::convertMilesToKm(10) . " km";
 
 ?>
